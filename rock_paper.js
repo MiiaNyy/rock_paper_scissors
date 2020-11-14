@@ -1,6 +1,8 @@
 let startBtn = document.getElementById('start-button');
 let mainContentContainer = document.getElementById('main-content');
 
+let animationContainer = document.getElementsByClassName('choice-icon-container')
+
 //Paper, rock, scissors icons buttons
 let paperIconButton = document.getElementById('paper-icon-button');
 let rockIconButton = document.getElementById('rock-icon-button');
@@ -19,7 +21,7 @@ function startButtonIsPressed() {
     rockPlayersChoice.style.display = "block";
 }
 
-
+//What happens when icons are pressed
 function paperButtonIsPressed () {
     paperPlayersChoice.style.display = "block";
     rockPlayersChoice.style.display = "none";
@@ -38,7 +40,17 @@ function scissorsButtonIsPressed() {
     paperPlayersChoice.style.display = "none"; 
 }
 
+function stopAnimation() {
+    animationContainer.style.webkitAnimationPlayState="paused";
+}
+
+
+
+//Pressing start button and showing the game
 startBtn.addEventListener("click", startButtonIsPressed);
+
+
+
 //Event Listeners when icon buttons are pressed
 paperIconButton.addEventListener("click", paperButtonIsPressed);
 rockIconButton.addEventListener("click", rockButtonIsPressed);
