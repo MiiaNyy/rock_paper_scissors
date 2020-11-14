@@ -45,19 +45,19 @@ body {
 }
 
 .choice-icon-container {
-    border-style: double;
+    
     border-radius: 5px;
     font-size: 100px;
     animation: handShake 2s infinite;
 }
 /*Handshake animation*/
-/*@keyframes handShake {
-    0%,100% { transform: rotate(5deg); }
-    50% { transform: rotate(-5deg); }
-}*/
+@keyframes handShake {
+    0%,100% { transform: rotate(10deg); }
+    50% { transform: rotate(-10deg); }
+}
 
 .choice-icon-item {
-    border-style: dotted;
+    
     width: 170px;
     height: 170px;
     display: none; /*Hide other options*/
@@ -70,9 +70,7 @@ body {
     border-style: double;
     width: 260px;
     height: auto;
-  
 }
-
 /*In the starting screen, only show rock icons*/
 #player-rock, #computer-rock {
     display: block; 
