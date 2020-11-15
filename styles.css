@@ -21,8 +21,7 @@ body {
     visibility: hidden;
 }
 
-.hand-button-container {
-    border-style: groove;
+.hand-button-container {    
     margin-bottom: 15px;
 
 }
@@ -42,14 +41,16 @@ body {
 
 .hand-item:hover {
     box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    
 }
 
 .choice-icon-container {    
     border-radius: 5px;
     font-size: 100px;
-    animation: handShake 2s infinite;
-    
+    /*animation: handShake 2s infinite;*/
+
 }
+
 /*Handshake animation*/
 @keyframes handShake {
     0%,100% { transform: rotate(10deg); }
@@ -62,8 +63,6 @@ body {
     display: none; /*Hide other options*/
     
 }
-
-
 
 .text-container {
     margin: 10px 0px;
