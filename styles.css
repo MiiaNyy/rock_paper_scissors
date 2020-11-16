@@ -26,6 +26,7 @@ body {
 .start-button {
     width: 100px;
     font-size: large;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
 }
 
 /*Main content*/
@@ -95,5 +96,6 @@ body {
 
 #reset-button {
     display: none;
-    margin-bottom: 30px;    
+    margin-bottom: 30px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);    
 }
