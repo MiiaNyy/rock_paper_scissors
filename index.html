@@ -8,14 +8,16 @@
     <title>Rock, Paper, Scissors</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container justify-content-center">
         <div class="header row justify-content-center">
             <div class="col">
                 <h1>Rock, Paper, Scissors</h1>
             </div>
             <div class="w-100"></div>
             <div class="col">
-                <p>Dual with a supercomputer in a epic game if you dare!</p>
+                
+                <h4>Dual with a supercomputer in a epic game if you dare!</h4>
+                <h5>Winner is best out of three!</h5>
             </div>
         </div>
 
@@ -25,18 +27,19 @@
 
         <div id="main-content" class="main-content">
             <div class="row justify-content-center">
-                <p>Choose one wisely!</p>
+                <h4>Choose one wisely!</h4>
             </div>
 
             <div class="hand-button-container row justify-content-center">
-                <div class="hand-item">
-                    <span id="paper-icon-button">✋</span>  
+                <div>
+                    <button id="paper-icon-button" class="hand-item">✋</button>
+   
                 </div>
-                <div class="hand-item">
-                    <span id="scissors-icon-button">✌️</span>  
+                <div >
+                    <button id="scissors-icon-button"class="hand-item">✌️</button>  
                 </div>
-                <div class="hand-item">
-                    <span id="rock-icon-button">👊</span>  
+                <div >
+                    <button id="rock-icon-button"class="hand-item">👊</button>  
                 </div>
             </div>
 
@@ -48,9 +51,9 @@
             
             <div class="row justify-content-center">
                 <div class="text-container">
-                    <h4>Player score: 0</h4>
+                    <h5>Players score: <span id="player-count"></span></h5>
                     <h2 id="winner-text">Let's dual!</h2>
-                    <h4>Computer score: 0</h4>
+                    <h>Computers Score: <span id="computer-count"></span></h5>
                 </div>
             </div>
 
@@ -58,6 +61,14 @@
                 <div id="computer-rock" class="choice-icon-item">👊</div>
                 <div id="computer-scissors" class="choice-icon-item">✌️</div>
                 <div id="computer-paper" class="choice-icon-item">✋</div>
+            </div>
+
+            <div class="row justify-content-center">
+                <h4>Super Computer</h4>
+            </div>
+
+            <div class="start-button-container row justify-content-center">
+                <button id="reset-button" type="button" class="start-button btn btn-dark">Reset</button>
             </div>
 
     </div>
