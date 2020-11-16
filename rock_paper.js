@@ -110,6 +110,9 @@ function playRound(computer, player) {
         } else if (computerScore === 3) {
             result = 'Computer Wins!'
             resetButton.style.display = "block"
+            paper.disabled = true;
+            rock.disabled = true;
+            scissors.disabled = true;
         }
     }
     text.innerHTML = result;
@@ -163,6 +166,8 @@ function reset() {
 resetButton.addEventListener('click', reset);
 
 main();
+
+
 
 
 
