@@ -64,6 +64,7 @@ function computersChoiceIs() {
     return computersFinalChoice
 }
 
+//It's determend which one is the winner
 function playRound(computer, player) {
     let result = '';
     
@@ -103,7 +104,7 @@ function playRound(computer, player) {
 }
 
 //When certain button is clicked, all of the other icons disapear
-function buttonActionDisplay(player) {
+function actionDisplay(player) {
     if (player == 'rock') {
         rockPlayersChoice.style.display = "block";
         paperPlayersChoice.style.display = "none";    
@@ -122,10 +123,10 @@ function buttonActionDisplay(player) {
 function game(player) {
     let computerGame = computersChoiceIs();
     playRound(computerGame, player);
-    buttonActionDisplay(player);
+    actionDisplay(player);
 }
 
-
+//When game is over, reset everything so next game can begin
 function reset() {
     playerScore = 0;
     computerScore = 0;
