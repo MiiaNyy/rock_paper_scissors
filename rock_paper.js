@@ -1,16 +1,18 @@
-const startBtn = document.getElementById('start-button'); //
-const resetButton = document.getElementById('reset-button');
-const mainContentContainer = document.getElementById('main-content');//
+const mainContentContainer = document.getElementById('main-content');
 
+//Buttons
+const startBtn = document.getElementById('start-button'); 
+const resetButton = document.getElementById('reset-button');
 //Paper, rock, scissors icons buttons
 const paper = document.getElementById('paper-icon-button');
 const rock = document.getElementById('rock-icon-button');
 const scissors = document.getElementById('scissors-icon-button');
 
+
 //The box where the PLAYERS choice is shown 
-const paperPlayersChoice = document.getElementById('players-choice-paper'); //
-const rockPlayersChoice = document.getElementById('players-choice-rock');//
-const scissorsPlayerChoice = document.getElementById('players-choice-scissors');//
+const paperPlayersChoice = document.getElementById('players-paper'); //
+const rockPlayersChoice = document.getElementById('players-rock');//
+const scissorsPlayerChoice = document.getElementById('players-scissors');//
 
 //The box where COMPUTERS choice is shown
 const paperComputersIcon = document.getElementById('computer-paper');//
@@ -18,31 +20,13 @@ const rockComputersIcon = document.getElementById('computer-rock');//
 const scissorsComputersIcon = document.getElementById('computer-scissors');//
 
 //Score board
-let text = document.getElementById('winner-text');
+let text = document.getElementById('winner-message');
 let playerScoreCounter = document.getElementById('player-count');
 let computerScoreCounter = document.getElementById('computer-count');
 
+//Score counter
 let playerScore = 0;
 let computerScore = 0;
-
-
-function main() {
-    //Pressing start button and showing the game
-    startBtn.addEventListener("click", startButtonIsPressed);
-
-    rock.addEventListener('click', function() {
-        game('rock');
-    })
-
-    scissors.addEventListener('click', function() {
-        game('scissors');
-    })
-
-    paper.addEventListener('click', function() {
-        game('paper');
-    })
-}
-
 
 
 //When start button is pressed the button itself disapears and main content comes visible
@@ -83,8 +67,7 @@ function computersChoiceIs() {
 function playRound(computer, player) {
     let result = '';
     
-    if ((player == 'rock' && computer == 'scissors') || (player == 'paper' && computer == 'rock') || (player == 'scissors' && computer == 'paper')) {
-        
+    if ((player == 'rock' && computer == 'scissors') || (player == 'paper' && computer == 'rock') || (player == 'scissors' && computer == 'paper')) {        
         playerScore++;   
 
         if(playerScore < 3) {
@@ -94,15 +77,12 @@ function playRound(computer, player) {
             resetButton.style.display = "block"
             paper.disabled = true;
             rock.disabled = true;
-            scissors.disabled = true;
-
-            
+            scissors.disabled = true;            
         }
-        
+
     } else if (player == computer) {
         result = "It's a tie"        
-    } else {
-    
+    } else {    
         computerScore++;
 
         if(computerScore < 3) {
@@ -122,6 +102,7 @@ function playRound(computer, player) {
     return
 }
 
+//When certain button is clicked, all of the other icons disapear
 function buttonActionDisplay(player) {
     if (player == 'rock') {
         rockPlayersChoice.style.display = "block";
@@ -144,6 +125,7 @@ function game(player) {
     buttonActionDisplay(player);
 }
 
+
 function reset() {
     playerScore = 0;
     computerScore = 0;
@@ -163,9 +145,31 @@ function reset() {
     
 }
 
-resetButton.addEventListener('click', reset);
+//When user clicks icon button, game starts
+function startGame() {
+    //Pressing start button main content is shown 
+    startBtn.addEventListener("click", startButtonIsPressed);
 
-main();
+    rock.addEventListener('click', function() {
+        game('rock');
+    })
+
+    scissors.addEventListener('click', function() {
+        game('scissors');
+    })
+
+    paper.addEventListener('click', function() {
+        game('paper');
+    })
+    resetButton.addEventListener('click', reset);
+
+}
+
+startGame();
+
+
+
+
 
 
 

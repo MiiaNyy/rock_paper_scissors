@@ -5,7 +5,7 @@ body {
 }
 
 .my-container {
-    min-width: 520px;
+    min-width: 520px;    
 }
 
 .header {
@@ -27,9 +27,10 @@ body {
     width: 100px;
     font-size: large;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+    
 }
 
-/*Main content*/
+/*Main content, the game area*/
 .main-content {
     visibility: hidden;
     background-color: aliceblue;
@@ -41,7 +42,7 @@ body {
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);    
 }
 
-.hand-item {
+.hand-button {
     font-size: 40px;    
     border-radius: 10px;
     height: 70px;
@@ -54,7 +55,7 @@ body {
 
 }
 
-.hand-item:hover {
+.hand-button:hover {
     box-shadow: 0 5px 10px rgba(0,0,0,0.3);
     
 }
@@ -62,15 +63,18 @@ body {
 .choice-icon-container {    
     border-radius: 5px;
     font-size: 100px;
-    animation: handShake 2s 1.5;
-
+    
 }
 
-/*Handshake animation*/
+/*.animated{
+    animation: handShake 2s infinite;
+}*/
+
+/*Handshake animation
 @keyframes handShake {
     0%,100% { transform: rotate(10deg); }
     50% { transform: rotate(-10deg); }
-}
+}*/
 
 .choice-icon-item {        
     width: 170px;
@@ -79,7 +83,8 @@ body {
     
 }
 
-.text-container {
+/*The score board*/
+.score-board {
     margin: 10px 0px;
     border-style: double;
     border-width: 5px;
@@ -89,8 +94,9 @@ body {
     padding: 10px 0px;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
 }
+
 /*In the starting screen, only show rock icons*/
-#players-choice-rock, #computer-rock {
+#players-rock, #computer-rock {
     display: block; 
 }
 
