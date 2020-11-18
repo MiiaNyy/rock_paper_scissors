@@ -25,6 +25,9 @@ let playerScoreCounter = document.getElementById('player-count');
 let computerScoreCounter = document.getElementById('computer-count');
 let scoreBoardContainer = document.getElementById('score');
 
+let playerAnimationCont = document.getElementById('player-animation-container');
+let computerAnimationCont = document.getElementById('computer-animation-container');
+
 //Score counter
 let playerScore = 0;
 let computerScore = 0;
@@ -127,7 +130,7 @@ function winnerDisplay() {
     let tmpColCheck = scoreBoardContainer.style.borderColor;
 
     if (tmpColCheck === 'black') {
-        scoreBoardContainer.style.borderColor = '#f400a1';
+        scoreBoardContainer.style.borderColor = 'red';
     } else {
         scoreBoardContainer.style.borderColor = 'black';
     }
@@ -136,6 +139,16 @@ function winnerDisplay() {
 function stopWinnerDisplay() {
     clearInterval(idInterval);
     scoreBoardContainer.style.borderColor = 'black';
+}
+
+function stopAnimation() {
+    playerAnimationCont.style.animationPlayState = 'paused';
+    computerAnimationCont.style.animationPlayState = 'paused';
+}
+
+function startAnimation() {
+    playerAnimationCont.style.animationPlayState = 'initial';
+    computerAnimationCont.style.animationPlayState = 'initial';    
 }
 
 function game(player) {
@@ -161,6 +174,7 @@ function reset() {
     paper.disabled = false;
     rock.disabled = false;
     scissors.disabled = false;
+    startAnimation()
     stopWinnerDisplay()
 }
 
@@ -171,21 +185,23 @@ function startGame() {
 
     rock.addEventListener('click', function() {
         game('rock');
+        stopAnimation()
     })
 
     scissors.addEventListener('click', function() {
         game('scissors');
+        stopAnimation()
     })
 
     paper.addEventListener('click', function() {
         game('paper');
+        stopAnimation()
     })
     resetButton.addEventListener('click', reset);
 
 }
 
 startGame();
-
 
 
 
