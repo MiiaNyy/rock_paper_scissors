@@ -10,9 +10,9 @@ const scissors = document.getElementById('scissors-icon-button');
 
 
 //The box where the PLAYERS choice is shown 
-const paperPlayersChoice = document.getElementById('players-paper'); //
-const rockPlayersChoice = document.getElementById('players-rock');//
-const scissorsPlayerChoice = document.getElementById('players-scissors');//
+const paperPlayersIcon = document.getElementById('players-paper'); //
+const rockPlayersIcon = document.getElementById('players-rock');//
+const scissorsPlayersIcon = document.getElementById('players-scissors');//
 
 //The box where COMPUTERS choice is shown
 const paperComputersIcon = document.getElementById('computer-paper');//
@@ -23,17 +23,19 @@ const scissorsComputersIcon = document.getElementById('computer-scissors');//
 let text = document.getElementById('winner-message');
 let playerScoreCounter = document.getElementById('player-count');
 let computerScoreCounter = document.getElementById('computer-count');
+let scoreBoardContainer = document.getElementById('score');
 
 //Score counter
 let playerScore = 0;
 let computerScore = 0;
+let idInterval;
 
 
 //When start button is pressed the button itself disapears and main content comes visible
 function startButtonIsPressed() {
     startBtn.style.display = "none";
     mainContentContainer.style.visibility = "visible";
-    rockPlayersChoice.style.display = "block";
+    rockPlayersIcon.style.display = "block";
 }
 
 //Random number generator, which decides what is computers choice in the game
@@ -68,6 +70,7 @@ function computersChoiceIs() {
 function playRound(computer, player) {
     let result = '';
     
+    
     if ((player == 'rock' && computer == 'scissors') || (player == 'paper' && computer == 'rock') || (player == 'scissors' && computer == 'paper')) {        
         playerScore++;   
 
@@ -78,7 +81,8 @@ function playRound(computer, player) {
             resetButton.style.display = "block"
             paper.disabled = true;
             rock.disabled = true;
-            scissors.disabled = true;            
+            scissors.disabled = true;
+            idInterval = setInterval(winnerDisplay, 500 );            
         }
 
     } else if (player == computer) {
@@ -99,25 +103,39 @@ function playRound(computer, player) {
     text.innerHTML = result;
     playerScoreCounter.innerHTML = playerScore;
     computerScoreCounter.innerHTML = computerScore;
-
-    return
 }
 
-//When certain button is clicked, all of the other icons disapear
+//When certain button is clicked, all of the other player icons disapear
 function actionDisplay(player) {
     if (player == 'rock') {
-        rockPlayersChoice.style.display = "block";
-        paperPlayersChoice.style.display = "none";    
-        scissorsPlayerChoice.style.display = "none";  
+        rockPlayersIcon.style.display = "block";
+        paperPlayersIcon.style.display = "none";    
+        scissorsPlayersIcon.style.display = "none";  
     } else if (player == 'paper') {
-        paperPlayersChoice.style.display = "block";
-        rockPlayersChoice.style.display = "none";
-        scissorsPlayerChoice.style.display = "none"; 
+        paperPlayersIcon.style.display = "block";
+        rockPlayersIcon.style.display = "none";
+        scissorsPlayersIcon.style.display = "none"; 
     }else if (player == 'scissors') {
-        scissorsPlayerChoice.style.display = "block";
-        rockPlayersChoice.style.display = "none";
-        paperPlayersChoice.style.display = "none";   
+        scissorsPlayersIcon.style.display = "block";
+        rockPlayersIcon.style.display = "none";
+        paperPlayersIcon.style.display = "none";   
     }
+}
+
+function winnerDisplay() {
+    
+    let tmpColCheck = scoreBoardContainer.style.borderColor;
+
+    if (tmpColCheck === 'black') {
+        scoreBoardContainer.style.borderColor = '#f400a1';
+    } else {
+        scoreBoardContainer.style.borderColor = 'black';
+    }
+} 
+
+function stopWinnerDisplay() {
+    clearInterval(idInterval);
+    scoreBoardContainer.style.borderColor = 'black';
 }
 
 function game(player) {
@@ -133,9 +151,9 @@ function reset() {
     playerScoreCounter.innerHTML = 0;
     computerScoreCounter.innerHTML = 0;
     text.innerHTML = "Let's dual!";
-    rockPlayersChoice.style.display = "block";
-    paperPlayersChoice.style.display = "none";    
-    scissorsPlayerChoice.style.display = "none"; 
+    rockPlayersIcon.style.display = "block";
+    paperPlayersIcon.style.display = "none";    
+    scissorsPlayersIcon.style.display = "none"; 
     rockComputersIcon.style.display = "block"
     paperComputersIcon.style.display = "none";
     scissorsComputersIcon.style.display = "none";
@@ -143,7 +161,7 @@ function reset() {
     paper.disabled = false;
     rock.disabled = false;
     scissors.disabled = false;
-    
+    stopWinnerDisplay()
 }
 
 //When user clicks icon button, game starts
@@ -167,8 +185,6 @@ function startGame() {
 }
 
 startGame();
-
-
 
 
 
