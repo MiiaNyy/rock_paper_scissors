@@ -178,7 +178,7 @@ function reset() {
     stopWinnerDisplay()
 }
 
-//When user clicks icon button, game starts
+//When user clicks start button and icon button, game starts
 function startGame() {
     //Pressing start button main content is shown 
     startBtn.addEventListener("click", startButtonIsPressed);
