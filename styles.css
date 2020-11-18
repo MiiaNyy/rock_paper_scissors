@@ -90,6 +90,10 @@ body {
     
 }
 
+.computer-name {
+    text-shadow: 5px 2px 2px rgba(150, 150, 150, 0.41);
+}
+
 /*In the starting screen, only show rock icons*/
 #players-rock, #computer-rock {
     display: block; 
