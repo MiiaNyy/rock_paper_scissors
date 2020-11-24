@@ -131,6 +131,7 @@ function winnerDisplay() {
 
     if (tmpColCheck === 'black') {
         scoreBoardContainer.style.borderColor = 'red';
+        scoreBoardContainer.style.boxShadow = ('3px 3px 3px rgba(177, 27, 27, 0.5)');
     } else {
         scoreBoardContainer.style.borderColor = 'black';
     }
